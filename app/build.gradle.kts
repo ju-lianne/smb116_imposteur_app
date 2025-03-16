@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "fr.caensup.licsts.smb116_imposteur_app"
-    compileSdk = 35
+    namespace = "fr.imposteur"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "fr.caensup.licsts.smb116_imposteur_app"
+        applicationId = "fr.imposteur"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -39,7 +40,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(libs.recyclerview)
-    implementation(libs.gson)
-
 }

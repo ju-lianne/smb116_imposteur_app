@@ -1,4 +1,4 @@
-package fr.caensup.licsts.smb116_imposteur_app;
+package fr.imposteur;
 
 import org.junit.Test;
 

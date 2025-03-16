@@ -1,10 +1,3 @@
 <resources>
-    <string name="app_name">smb116_imposteur_app</string>
-    <string name="rule1">Règles du jeu de l\'Imposteur</string>
-    <string name="rule2">1. Distribution des rôles : chaque joueur reçoit secrètement un mot. La plupart, les Agents ont le même, les Imposteurs ont un mot différent et l\'Amnésique n\'a pas de mot du tout.</string>
-    <string name="rule3">2. Tour de jeu : chaque joueur doit donner un mot, une phrase ou une expression qui correspond à son mot secret. L\'objectif est d\'être assez vague pour ne pas donner trop d\'indices aux adversaires.</string>
-    <string name="rule4">3. Vote : les joueurs votent pour tenter d\'éliminer un adversaire.</string>
-    <string name="rule5">4. Objectifs : \n- les Agents doivent éliminer tous les agents et l\'Amnésique\n- les Imposteurs doivent tromper les Agents et rester en lice jusqu\'à la fin\n- l\'Amnésique doit deviner le mot des Agents avant de se faire éliminer</string>
-    <string name="add_player">Ajouter le joueur</string>
-    <string name="start_round">Jouer</string>
+    <string name="app_name">Imposteur</string>
 </resources>

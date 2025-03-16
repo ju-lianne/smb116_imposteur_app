@@ -1,4 +1,4 @@
-package fr.caensup.licsts.smb116_imposteur_app;
+package fr.imposteur;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("fr.caensup.licsts.smb116_imposteur_app", appContext.getPackageName());
+        assertEquals("fr.imposteur", appContext.getPackageName());
     }
 }
