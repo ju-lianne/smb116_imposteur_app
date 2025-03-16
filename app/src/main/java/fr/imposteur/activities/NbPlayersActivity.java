@@ -20,7 +20,6 @@ public class NbPlayersActivity extends AppCompatActivity {
         nbPlayers = findViewById(R.id.nbPicker_nbPlayers);
         btnNext = findViewById(R.id.btn_next);
 
-        // Configurer le NumberPicker
         nbPlayers.setMinValue(4);
         nbPlayers.setMaxValue(12);
         nbPlayers.setValue(4);
@@ -28,7 +27,6 @@ public class NbPlayersActivity extends AppCompatActivity {
         btnNext.setOnClickListener(view -> {
             int selectedPlayers = nbPlayers.getValue();
 
-            // Envoyer le nombre de joueurs à AddPlayerActivity
             Intent intent = new Intent(NbPlayersActivity.this, AddPlayerActivity.class);
             intent.putExtra("nbPlayers", selectedPlayers);
             startActivity(intent);

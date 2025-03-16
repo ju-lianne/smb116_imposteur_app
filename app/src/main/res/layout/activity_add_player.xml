@@ -26,16 +26,23 @@
 
     <Button
         android:id="@+id/btn_addPlayer"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/add_player" />
 
     <Button
         android:id="@+id/btn_startRound"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/start_round" />
+
+    <Button
+        android:id="@+id/btn_backToNb"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/back" />
 
 </LinearLayout>
