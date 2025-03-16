@@ -7,7 +7,8 @@ import exceptions.IllegalNbPlayersException;
 import interfaces.IGame;
 
 public class Game implements IGame {
-    public ArrayList<Player> players;
+    int nbPlayers;
+    ArrayList<Player> players;
 
     public Game(List<String> playerNames) throws IllegalNbPlayersException {
         validatePlayerCount(playerNames.size());
