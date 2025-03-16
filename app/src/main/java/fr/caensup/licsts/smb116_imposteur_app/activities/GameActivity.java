@@ -8,7 +8,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class GameActivity extends AppCompatActivity {
+    private ArrayList<String> players;
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
