@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "smb116_imposteur_app"
+rootProject.name = "Imposteur"
 include(":app")
+ 

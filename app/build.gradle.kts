@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "fr.caensup.licsts.smb116_imposteur_app"
+    namespace = "fr.imposteur"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "fr.caensup.licsts.smb116_imposteur_app"
+        applicationId = "fr.imposteur"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
