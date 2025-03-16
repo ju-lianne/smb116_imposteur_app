@@ -12,8 +12,17 @@
         >
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rview_players"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editText_playerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom du joueur"
+        android:inputType="textPersonName"
+        android:padding="8dp" />
 
         <Button
             android:id="@+id/btn_addPlayer"
@@ -21,5 +30,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/add_player" />
+
+    <Button
+        android:id="@+id/btn_startRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/start_round" />
 
     </LinearLayout>

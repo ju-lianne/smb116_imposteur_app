@@ -5,5 +5,6 @@
     <string name="rule3">2. Tour de jeu : chaque joueur doit donner un mot, une phrase ou une expression qui correspond à son mot secret. L\'objectif est d\'être assez vague pour ne pas donner trop d\'indices aux adversaires.</string>
     <string name="rule4">3. Vote : les joueurs votent pour tenter d\'éliminer un adversaire.</string>
     <string name="rule5">4. Objectifs : \n- les Agents doivent éliminer tous les agents et l\'Amnésique\n- les Imposteurs doivent tromper les Agents et rester en lice jusqu\'à la fin\n- l\'Amnésique doit deviner le mot des Agents avant de se faire éliminer</string>
-    <string name="add_player">Ajouter un joueur</string>
+    <string name="add_player">Ajouter le joueur</string>
+    <string name="start_round">Jouer</string>
 </resources>
