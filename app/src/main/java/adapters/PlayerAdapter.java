@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import fr.imposteur.R;
+
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder> {
-    private List<String> players;
+    private final List<String> players;
 
     public PlayerAdapter(List<String> players) {
         this.players = players;
@@ -22,7 +24,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_1, parent, false);
+                .inflate(R.layout.item_player, parent, false);
         return new ViewHolder(view);
     }
 
@@ -41,7 +43,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            playerName = itemView.findViewById(android.R.id.text1);
+            playerName = itemView.findViewById(R.id.tv_playerName);
         }
     }
 }

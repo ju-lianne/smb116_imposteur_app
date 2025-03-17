@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,7 +41,6 @@ public class NbPlayersActivity extends AppCompatActivity {
         nbPlayersPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
             nbPlayers = newVal;
             updateRoles(nbPlayers);
-            Toast.makeText(this, "Nombre de joueurs : " + nbPlayers, Toast.LENGTH_SHORT).show();
         });
 
         btnNext.setOnClickListener(view -> {

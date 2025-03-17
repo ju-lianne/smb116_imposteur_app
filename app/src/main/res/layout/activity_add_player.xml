@@ -9,17 +9,19 @@
     android:orientation="vertical"
     android:padding="20dp"
     android:gravity="center_horizontal"
+    android:background="@color/lightPink"
     >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rview_players"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:minHeight="400dp" />
 
     <EditText
         android:id="@+id/editText_playerName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Nom du joueur"
         android:inputType="textPersonName"
         android:padding="8dp" />
@@ -27,6 +29,7 @@
     <Button
         android:id="@+id/btn_addPlayer"
         android:layout_width="200dp"
+        android:backgroundTint="@color/btn_bg"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/add_player" />
@@ -34,6 +37,7 @@
     <Button
         android:id="@+id/btn_startRound"
         android:layout_width="200dp"
+        android:backgroundTint="@color/btn_bg"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/start_round" />
@@ -41,6 +45,7 @@
     <Button
         android:id="@+id/btn_backToNb"
         android:layout_width="200dp"
+        android:backgroundTint="@color/btn_bg"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/back" />
