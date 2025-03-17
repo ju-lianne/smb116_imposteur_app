@@ -26,16 +26,16 @@ public class MainActivity extends AppCompatActivity {
         if (isFirstRun) {
             new DataImporter(this).importData();
             prefs.edit().putBoolean("isFirstRun", false).apply();
-            Toast.makeText(this, "📂 Données importées pour la première fois !", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Données importées pour la première fois !", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "✅ Données déjà importées.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Données déjà importées.", Toast.LENGTH_SHORT).show();
         }
 
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         if (db != null) {
-            Toast.makeText(this, "📂 Base de données chargée avec succès !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Base de données chargée avec succès !", Toast.LENGTH_SHORT).show();
         } else {
             Log.e("MainActivity", "Erreur lors du chargement de la base !");
         }

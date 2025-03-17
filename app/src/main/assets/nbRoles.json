@@ -1,46 +1,46 @@
 {
   "4": {
-    "civilian": 3,
+    "agent": 3,
     "spy": 1,
     "whitepage": 0
   },
   "5": {
-    "civilian": 3,
+    "agent": 3,
     "spy": 2,
     "whitepage": 0
   },
   "6": {
-    "civilian": 4,
+    "agent": 4,
     "spy": 2,
     "whitepage": 0
   },
   "7": {
-    "civilian": 4,
+    "agent": 4,
     "spy": 2,
     "whitepage": 1
   },
   "8": {
-    "civilian": 5,
+    "agent": 5,
     "spy": 2,
     "whitepage": 1
   },
   "9": {
-    "civilian": 5,
+    "agent": 5,
     "spy": 3,
     "whitepage": 1
   },
   "10": {
-    "civilian": 6,
+    "agent": 6,
     "spy": 3,
     "whitepage": 1
   },
   "11": {
-    "civilian": 7,
+    "agent": 7,
     "spy": 3,
     "whitepage": 1
   },
   "12": {
-    "civilian": 7,
+    "agent": 7,
     "spy": 4,
     "whitepage": 1
   }

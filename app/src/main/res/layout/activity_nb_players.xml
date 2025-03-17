@@ -26,4 +26,43 @@
         android:layout_height="wrap_content"
         android:text="Continuer"
         android:layout_marginTop="20dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/txt_nbAgent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="Agents : -"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_nbSpy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:text="Imposteurs : -"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_nbWhitePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:text="Amnésiques : -"
+        android:textSize="20sp" />
+
+    </LinearLayout>
 </LinearLayout>
