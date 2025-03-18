@@ -13,7 +13,7 @@ public class Game implements IGame {
     private DBManager dbManager;
     int nbPlayers, nbAgent, nbSpy, nbWhitePage;
     private ArrayList<Player> players;
-    private List<Integer> remainingCategories;
+    public List<Integer> remainingCategories;
 
     public Game(int nbPlayers, int nbAgent, int nbSpy, int nbWhitePage, List<String> playerNames, Context context) {
 
@@ -32,10 +32,6 @@ public class Game implements IGame {
             player.setName(name);
             this.players.add(player);
         }
-    }
-
-    public void startRound() {
-        Round round = new Round(this);
     }
 
     public void removeCategory(int categoryId) {

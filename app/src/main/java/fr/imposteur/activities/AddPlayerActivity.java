@@ -30,6 +30,9 @@ public class AddPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_player);
 
+        Button btnCloseApp = findViewById(R.id.btn_closeApp);
+        btnCloseApp.setOnClickListener(view -> finishAffinity());
+
         nbPlayers = getIntent().getIntExtra("nbPlayers", 4);
 
         playerNameInput = findViewById(R.id.editText_playerName);

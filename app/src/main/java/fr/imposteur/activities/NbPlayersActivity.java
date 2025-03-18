@@ -28,6 +28,9 @@ public class NbPlayersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nb_players);
 
+        Button btnCloseApp = findViewById(R.id.btn_closeApp);
+        btnCloseApp.setOnClickListener(view -> finishAffinity());
+
         txtNbSpy = findViewById(R.id.txt_nbSpy);
         txtNbAgent = findViewById(R.id.txt_nbAgent);
         txtNbWhitePage = findViewById(R.id.txt_nbWhitePage);

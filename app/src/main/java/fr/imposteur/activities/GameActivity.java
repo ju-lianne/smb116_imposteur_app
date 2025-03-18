@@ -1,5 +1,6 @@
 package fr.imposteur.activities;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -51,12 +52,22 @@ public class GameActivity extends AppCompatActivity {
         layoutPlayerList = findViewById(R.id.layout_players_list);
         btnNewRound = findViewById(R.id.btn_newRound);
 
+        Button btnCloseApp = findViewById(R.id.btn_closeApp);
+        Button btnNewGame = findViewById(R.id.btn_newGame);
+
         // get extras
         List<String> playerNames = getIntent().getStringArrayListExtra("players");
         int nbPlayers = getIntent().getIntExtra("nbPlayers", 4);
         int nbAgent = getIntent().getIntExtra("nbAgent", 3);
         int nbSpy = getIntent().getIntExtra("nbSpy", 1);
         int nbWhitePage = getIntent().getIntExtra("nbWhitePage", 0);
+
+        btnCloseApp.setOnClickListener(view -> finishAffinity());
+        btnNewGame.setOnClickListener(view -> {
+                Intent intent = new Intent(GameActivity.this, NbPlayersActivity.class);
+                startActivity(intent);
+                finish();
+            });
 
         assert playerNames != null;
         txtDisplay.setVisibility(View.GONE);
@@ -91,6 +102,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void startNewRound(Game game) {
+        Log.d("DebugCategory", "categories remaining : " + game.remainingCategories.size());
         round = new Round(game);
         isEliminationPhase = false;
         currentIndex = 0;
@@ -100,10 +112,6 @@ public class GameActivity extends AppCompatActivity {
         layoutPlayerList.removeAllViews();
 
         players = game.getPlayers();
-
-        for (Player player : round.remainingPlayers) {
-            Log.d("PlayersDebug", "remaning player : " + player.getName());
-        }
 
         layoutPlayerList.setVisibility(View.GONE);
         txtDisplay.setVisibility(View.VISIBLE);
@@ -123,10 +131,10 @@ public class GameActivity extends AppCompatActivity {
         Player currentPlayer = players.get(currentIndex);
 
         if (!showingWord) {
-            txtDisplay.setText("Joueur : " + currentPlayer.getName() + "\n\nTouchez pour voir le mot");
+            txtDisplay.setText("" + currentPlayer.getName() + "\n\nTouchez pour voir le mot");
             showingWord = true;
         } else {
-            txtDisplay.setText("Mot : " + currentPlayer.getWord() + "\n\nTouchez pour continuer");
+            txtDisplay.setText("" + currentPlayer.getWord() + "\n\nTouchez pour continuer");
             showingWord = false;
             currentIndex++;
         }

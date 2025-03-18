@@ -1,9 +1,9 @@
 package models;
 
 public class Player {
-    protected String name;
-    protected String word;
-    protected Role role;
+    String name;
+    String word;
+    Role role;
 
     public Player() {
     }

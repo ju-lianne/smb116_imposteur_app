@@ -32,6 +32,7 @@ public class Round {
         int randomIndex = new Random().nextInt(game.getRemainingCategories().size());
         int categoryId = game.getRemainingCategories().get(randomIndex);
         this.categorie = new Categorie(categoryId, game.getDbManager());
+        game.removeCategory(categoryId);
     }
 
     private void setRolesWords() {
@@ -112,14 +113,6 @@ public class Round {
             return 2;
         }
         return 0;
-    }
-
-    public Item getSpyWord() {
-        return spyWord;
-    }
-
-    public Item getAgentWord() {
-        return agentWord;
     }
 
     public int getVillainCount() {
