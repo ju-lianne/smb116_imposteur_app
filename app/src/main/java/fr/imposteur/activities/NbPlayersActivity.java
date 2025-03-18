@@ -14,10 +14,13 @@ import database.DBHelper;
 import fr.imposteur.R;
 
 public class NbPlayersActivity extends AppCompatActivity {
+    // XML elements
     private TextView txtNbSpy, txtNbAgent, txtNbWhitePage;
-    private NumberPicker nbPlayersPicker;
+    private NumberPicker pickerNbPlayers;
     private Button btnNext;
-    private int nbPlayers;
+
+    // game logic variables
+    private int nbPlayers, nbAgent, nbSpy, nbWhitePage;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,18 +30,18 @@ public class NbPlayersActivity extends AppCompatActivity {
         txtNbAgent = findViewById(R.id.txt_nbAgent);
         txtNbWhitePage = findViewById(R.id.txt_nbWhitePage);
 
-        nbPlayersPicker = findViewById(R.id.nbPicker_nbPlayers);
+        pickerNbPlayers = findViewById(R.id.nbPicker_nbPlayers);
         btnNext = findViewById(R.id.btn_next);
 
-        nbPlayersPicker.setMinValue(4);
-        nbPlayersPicker.setMaxValue(12);
-        nbPlayersPicker.setValue(4);
+        pickerNbPlayers.setMinValue(4);
+        pickerNbPlayers.setMaxValue(12);
+        pickerNbPlayers.setValue(4);
 
-        nbPlayers = nbPlayersPicker.getValue();
+        nbPlayers = pickerNbPlayers.getValue();
 
         updateRoles(nbPlayers);
 
-        nbPlayersPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
+        pickerNbPlayers.setOnValueChangedListener((picker, oldVal, newVal) -> {
             nbPlayers = newVal;
             updateRoles(nbPlayers);
         });
@@ -46,7 +49,11 @@ public class NbPlayersActivity extends AppCompatActivity {
         btnNext.setOnClickListener(view -> {
             Intent intent = new Intent(NbPlayersActivity.this, AddPlayerActivity.class);
             intent.putExtra("nbPlayers", nbPlayers);
+            intent.putExtra("nbAgent", nbAgent);
+            intent.putExtra("nbSpy", nbSpy);
+            intent.putExtra("nbWhitePage", nbWhitePage);
             startActivity(intent);
+            finish();
         });
     }
 
@@ -57,9 +64,9 @@ public class NbPlayersActivity extends AppCompatActivity {
         Cursor cursor = db.rawQuery("SELECT nbSpy, nbAgent, nbWhitePage FROM nbRoles WHERE nbPlayers = ?",
                 new String[]{Integer.toString(nbPlayers)});
         if (cursor.moveToFirst()) {
-            int nbSpy = cursor.getInt(0);
-            int nbAgent = cursor.getInt(1);
-            int nbWhitePage = cursor.getInt(2);
+            nbSpy = cursor.getInt(0);
+            nbAgent = cursor.getInt(1);
+            nbWhitePage = cursor.getInt(2);
 
             txtNbSpy.setText("Imposteurs : " + nbSpy);
             txtNbAgent.setText("Agents : " + nbAgent);

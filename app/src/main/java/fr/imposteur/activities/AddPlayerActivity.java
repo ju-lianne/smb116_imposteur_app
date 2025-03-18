@@ -73,11 +73,26 @@ public class AddPlayerActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(view -> {
                 Intent intent = new Intent(AddPlayerActivity.this, NbPlayersActivity.class);
-        startActivity(intent);
+                startActivity(intent);
         });
 
         btnPlay.setOnClickListener(view -> {
+            Intent receivedIntent = getIntent();
 
+            Intent intent = new Intent(AddPlayerActivity.this, GameActivity.class);
+            int nbAgent = receivedIntent.getIntExtra("nbAgent", 0);
+            int nbSpy = receivedIntent.getIntExtra("nbSpy", 0);
+            int nbWhitePage = receivedIntent.getIntExtra("nbWhitePage", 0);
+
+            intent.putStringArrayListExtra("players", players);
+            intent.putExtra("nbPlayers", nbPlayers);
+
+            intent.putExtra("nbAgent", nbAgent);
+            intent.putExtra("nbSpy", nbSpy);
+            intent.putExtra("nbWhitePage", nbWhitePage);
+
+            startActivity(intent);
+            finish();
         });
     }
 }
