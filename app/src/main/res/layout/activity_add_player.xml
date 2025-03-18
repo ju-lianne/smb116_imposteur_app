@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Nom du joueur"
+        android:maxLength="12"
         android:inputType="textPersonName"
         android:padding="8dp" />
 

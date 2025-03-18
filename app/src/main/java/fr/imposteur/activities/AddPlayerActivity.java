@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,7 @@ public class AddPlayerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_player);
 
@@ -45,7 +47,7 @@ public class AddPlayerActivity extends AppCompatActivity {
         btnPlay.setEnabled(false);
 
         btnAddPlayer.setOnClickListener(view -> {
-            String name = playerNameInput.getText().toString().trim();
+            String name = playerNameInput.getText().toString().trim().toUpperCase();
 
             if (name.isEmpty()) {
                 Toast.makeText(this, "Veuillez entrer un nom", Toast.LENGTH_SHORT).show();

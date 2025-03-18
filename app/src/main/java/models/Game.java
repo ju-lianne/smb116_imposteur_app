@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import database.DBManager;
-import exceptions.IllegalNbPlayersException;
 import interfaces.IGame;
 
 public class Game implements IGame {
@@ -16,8 +15,7 @@ public class Game implements IGame {
     private ArrayList<Player> players;
     private List<Integer> remainingCategories;
 
-    public Game(int nbPlayers, int nbAgent, int nbSpy, int nbWhitePage, List<String> playerNames, Context context) throws IllegalNbPlayersException {
-        validatePlayerCount(playerNames.size());
+    public Game(int nbPlayers, int nbAgent, int nbSpy, int nbWhitePage, List<String> playerNames, Context context) {
 
         this.nbPlayers = nbPlayers;
         this.nbAgent = nbAgent;
@@ -33,12 +31,6 @@ public class Game implements IGame {
             Player player = new Player();
             player.setName(name);
             this.players.add(player);
-        }
-    }
-
-    private void validatePlayerCount(int nbPlayers) throws IllegalNbPlayersException {
-        if (nbPlayers < MIN_PLAYERS || nbPlayers > MAX_PLAYERS) {
-            throw new IllegalNbPlayersException("Le nombre de joueurs doit être entre " + MIN_PLAYERS + " et " + MAX_PLAYERS + ".");
         }
     }
 

@@ -10,8 +10,8 @@ import java.util.Random;
 public class Round {
     private final Game game;
     private Categorie categorie;
-    public Item spyWord;
-    public Item agentWord;
+    private Item spyWord;
+    private Item agentWord;
     public final List<Player> remainingPlayers;
     private int agentCount;
     private int villainCount;
@@ -99,4 +99,34 @@ public class Round {
         }
     }
 
+    public void eliminatePlayer(Player player) {
+        remainingPlayers.remove(player);
+        countRoles();
+    }
+
+    public int endRoundCondition() {
+        if (agentCount <= villainCount) {
+            return 1;
+        }
+        if (remainingPlayers.stream().allMatch(player -> player.getRole().equals(Role.AGENT))) {
+            return 2;
+        }
+        return 0;
+    }
+
+    public Item getSpyWord() {
+        return spyWord;
+    }
+
+    public Item getAgentWord() {
+        return agentWord;
+    }
+
+    public int getVillainCount() {
+        return villainCount;
+    }
+
+    public int getAgentCount() {
+        return agentCount;
+    }
 }

@@ -9,6 +9,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import database.DBHelper;
 import fr.imposteur.R;
@@ -23,6 +24,7 @@ public class NbPlayersActivity extends AppCompatActivity {
     private int nbPlayers, nbAgent, nbSpy, nbWhitePage;
 
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nb_players);
 
