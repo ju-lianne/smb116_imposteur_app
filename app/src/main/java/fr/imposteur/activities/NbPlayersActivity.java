@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import database.DBHelper;
 import fr.imposteur.R;
+import utils.Utils;
 
 public class NbPlayersActivity extends AppCompatActivity {
     // XML elements
@@ -29,7 +30,7 @@ public class NbPlayersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nb_players);
 
         Button btnCloseApp = findViewById(R.id.btn_closeApp);
-        btnCloseApp.setOnClickListener(view -> finishAffinity());
+        btnCloseApp.setOnClickListener(view -> Utils.showExitConfirmation(this));
 
         txtNbSpy = findViewById(R.id.txt_nbSpy);
         txtNbAgent = findViewById(R.id.txt_nbAgent);

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import utils.Utils;
 
 import adapters.PlayerAdapter;
 import fr.imposteur.R;
@@ -31,7 +32,7 @@ public class AddPlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_player);
 
         Button btnCloseApp = findViewById(R.id.btn_closeApp);
-        btnCloseApp.setOnClickListener(view -> finishAffinity());
+        btnCloseApp.setOnClickListener(view -> Utils.showExitConfirmation(this));
 
         nbPlayers = getIntent().getIntExtra("nbPlayers", 4);
 

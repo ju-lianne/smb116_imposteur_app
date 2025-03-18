@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.List;
+import utils.Utils;
 
 import fr.imposteur.R;
 import models.Game;
@@ -30,7 +31,7 @@ public class GameActivity extends AppCompatActivity {
     private SensorEventListener accelerometerListener;
 
     // XML elements
-    private TextView txtDisplay;
+    private TextView txtDisplay, txtInstructions;
     private LinearLayout layoutPlayerList;
     private Button btnNewRound;
 
@@ -49,6 +50,7 @@ public class GameActivity extends AppCompatActivity {
 
         // XML elements
         txtDisplay = findViewById(R.id.txt_display);
+        txtInstructions = findViewById(R.id.txt_instructions);
         layoutPlayerList = findViewById(R.id.layout_players_list);
         btnNewRound = findViewById(R.id.btn_newRound);
 
@@ -62,7 +64,8 @@ public class GameActivity extends AppCompatActivity {
         int nbSpy = getIntent().getIntExtra("nbSpy", 1);
         int nbWhitePage = getIntent().getIntExtra("nbWhitePage", 0);
 
-        btnCloseApp.setOnClickListener(view -> finishAffinity());
+        btnCloseApp.setOnClickListener(view -> Utils.showExitConfirmation(this));
+
         btnNewGame.setOnClickListener(view -> {
                 Intent intent = new Intent(GameActivity.this, NbPlayersActivity.class);
                 startActivity(intent);
@@ -115,6 +118,7 @@ public class GameActivity extends AppCompatActivity {
 
         layoutPlayerList.setVisibility(View.GONE);
         txtDisplay.setVisibility(View.VISIBLE);
+        txtInstructions.setVisibility(View.VISIBLE);
 
         showNext();
 
@@ -124,24 +128,27 @@ public class GameActivity extends AppCompatActivity {
 
     private void showNext() {
         if (currentIndex >= players.size()) {
-            txtDisplay.setText("Retournez le téléphone contre la table et jouez 2 rounds. Puis reprenez le téléphone.");
+            txtInstructions.setText("Retournez le téléphone contre une surface. Jouez 2 rounds puis reprenez le téléphone.");
+            txtDisplay.setText("");
             return;
         }
 
         Player currentPlayer = players.get(currentIndex);
 
         if (!showingWord) {
-            txtDisplay.setText("" + currentPlayer.getName() + "\n\nTouchez pour voir le mot");
+            txtInstructions.setText("Touchez pour voir le mot");
+            txtDisplay.setText("" + currentPlayer.getName());
             showingWord = true;
         } else {
-            txtDisplay.setText("" + currentPlayer.getWord() + "\n\nTouchez pour continuer");
+            txtInstructions.setText("Touchez pour continuer");
+            txtDisplay.setText("" + currentPlayer.getWord());
             showingWord = false;
             currentIndex++;
         }
     }
 
     private void showEliminationPhase(Round round) {
-        txtDisplay.setText("Qui éliminer ?");
+        txtInstructions.setText("Qui éliminer ?");
         layoutPlayerList.setVisibility(View.VISIBLE);
 
         for (Player player : round.remainingPlayers) {
@@ -157,13 +164,14 @@ public class GameActivity extends AppCompatActivity {
                 layoutPlayerList.removeView(playerButton);
                 txtDisplay.setText("Il reste : " + round.getAgentCount() + " agents et " + round.getVillainCount() + " vilains !" );
 
-                if (round.endRoundCondition() == 1) {
-                    txtDisplay.setText("Les vilains ont gagné" );
+                if (round.endRoundCondition() > 0) {
+                    if (round.endRoundCondition() == 1) {
+                        txtDisplay.setText("Les vilains ont gagné" );
+                    } else if (round.endRoundCondition() == 2) {
+                        txtDisplay.setText("Les agents ont gagné" );
+                    }
                     layoutPlayerList.setVisibility(View.GONE);
-                    btnNewRound.setVisibility(View.VISIBLE);
-                } else if (round.endRoundCondition() == 2) {
-                    txtDisplay.setText("Les agents ont gagné" );
-                    layoutPlayerList.setVisibility(View.GONE);
+                    txtInstructions.setVisibility(View.GONE);
                     btnNewRound.setVisibility(View.VISIBLE);
                 }
             });

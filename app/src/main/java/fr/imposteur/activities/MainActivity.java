@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import database.DBHelper;
 import database.DataImporter;
 import fr.imposteur.R;
+import utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btnCloseApp = findViewById(R.id.btn_closeApp);
-        btnCloseApp.setOnClickListener(view -> finishAffinity());
+        btnCloseApp.setOnClickListener(view -> Utils.showExitConfirmation(this));
+
 
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
