@@ -7,10 +7,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import utils.Utils;
 
 import adapters.PlayerAdapter;
 import fr.imposteur.R;
@@ -25,8 +27,12 @@ public class AddPlayerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_player);
+
+        Button btnCloseApp = findViewById(R.id.btn_closeApp);
+        btnCloseApp.setOnClickListener(view -> Utils.showExitConfirmation(this));
 
         nbPlayers = getIntent().getIntExtra("nbPlayers", 4);
 
@@ -45,7 +51,7 @@ public class AddPlayerActivity extends AppCompatActivity {
         btnPlay.setEnabled(false);
 
         btnAddPlayer.setOnClickListener(view -> {
-            String name = playerNameInput.getText().toString().trim();
+            String name = playerNameInput.getText().toString().trim().toUpperCase();
 
             if (name.isEmpty()) {
                 Toast.makeText(this, "Veuillez entrer un nom", Toast.LENGTH_SHORT).show();
@@ -73,11 +79,26 @@ public class AddPlayerActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(view -> {
                 Intent intent = new Intent(AddPlayerActivity.this, NbPlayersActivity.class);
-        startActivity(intent);
+                startActivity(intent);
         });
 
         btnPlay.setOnClickListener(view -> {
+            Intent receivedIntent = getIntent();
 
+            Intent intent = new Intent(AddPlayerActivity.this, GameActivity.class);
+            int nbAgent = receivedIntent.getIntExtra("nbAgent", 0);
+            int nbSpy = receivedIntent.getIntExtra("nbSpy", 0);
+            int nbWhitePage = receivedIntent.getIntExtra("nbWhitePage", 0);
+
+            intent.putStringArrayListExtra("players", players);
+            intent.putExtra("nbPlayers", nbPlayers);
+
+            intent.putExtra("nbAgent", nbAgent);
+            intent.putExtra("nbSpy", nbSpy);
+            intent.putExtra("nbWhitePage", nbWhitePage);
+
+            startActivity(intent);
+            finish();
         });
     }
 }
