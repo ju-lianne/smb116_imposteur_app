@@ -31,7 +31,7 @@ public class GameActivity extends AppCompatActivity {
     private SensorEventListener accelerometerListener;
 
     // XML elements
-    private TextView txtDisplay, txtInstructions;
+    private TextView txtDisplay, txtInstructions, txtTitle;
     private LinearLayout layoutPlayerList;
     private Button btnNewRound;
 
@@ -49,8 +49,9 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         // XML elements
-        txtDisplay = findViewById(R.id.txt_display);
-        txtInstructions = findViewById(R.id.txt_instructions);
+        txtTitle = findViewById(R.id.tv_title);
+        txtDisplay = findViewById(R.id.tv_card);
+        txtInstructions = findViewById(R.id.tv_instructions);
         layoutPlayerList = findViewById(R.id.layout_players_list);
         btnNewRound = findViewById(R.id.btn_newRound);
 
@@ -117,31 +118,36 @@ public class GameActivity extends AppCompatActivity {
         players = game.getPlayers();
 
         layoutPlayerList.setVisibility(View.GONE);
+
+        txtTitle.setVisibility(View.VISIBLE);
         txtDisplay.setVisibility(View.VISIBLE);
         txtInstructions.setVisibility(View.VISIBLE);
 
         showNext();
-
         txtDisplay.setOnClickListener(view -> showNext());
     }
 
 
     private void showNext() {
         if (currentIndex >= players.size()) {
-            txtInstructions.setText("Retournez le téléphone contre une surface. Jouez 2 rounds puis reprenez le téléphone.");
             txtDisplay.setText("");
+            txtTitle.setText("");
+            txtDisplay.setVisibility(View.GONE);
+            txtInstructions.setText("Retournez le téléphone contre une surface. Jouez 2 rounds puis reprenez le téléphone.");
             return;
         }
 
         Player currentPlayer = players.get(currentIndex);
 
         if (!showingWord) {
-            txtInstructions.setText("Touchez pour voir le mot");
-            txtDisplay.setText("" + currentPlayer.getName());
+            txtInstructions.setText("Touchez \"?\"  pour voir le mot");
+            txtDisplay.setText("\n?");
+            txtTitle.setText("" + currentPlayer.getName());
             showingWord = true;
         } else {
-            txtInstructions.setText("Touchez pour continuer");
+            txtInstructions.setText("Touchez le mot pour le cacher et passez le téléphone à la personne suivante.");
             txtDisplay.setText("" + currentPlayer.getWord());
+            txtTitle.setText("" + currentPlayer.getName());
             showingWord = false;
             currentIndex++;
         }
@@ -162,16 +168,15 @@ public class GameActivity extends AppCompatActivity {
             playerButton.setOnClickListener(view -> {
                 round.eliminatePlayer(player);
                 layoutPlayerList.removeView(playerButton);
-                txtDisplay.setText("Il reste : " + round.getAgentCount() + " agents et " + round.getVillainCount() + " vilains !" );
+                txtTitle.setText("Il reste : " + round.getAgentCount() + " agents et " + round.getVillainCount() + " vilains !" );
 
                 if (round.endRoundCondition() > 0) {
                     if (round.endRoundCondition() == 1) {
-                        txtDisplay.setText("Les vilains ont gagné" );
+                        txtInstructions.setText("Les vilains ont gagné !u" );
                     } else if (round.endRoundCondition() == 2) {
-                        txtDisplay.setText("Les agents ont gagné" );
+                        txtInstructions.setText("Les agents ont gagné !" );
                     }
                     layoutPlayerList.setVisibility(View.GONE);
-                    txtInstructions.setVisibility(View.GONE);
                     btnNewRound.setVisibility(View.VISIBLE);
                 }
             });

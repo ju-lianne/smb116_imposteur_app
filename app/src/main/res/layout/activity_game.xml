@@ -38,28 +38,43 @@
         />
 
     <TextView
-        android:id="@+id/txt_display"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text=""
         android:textSize="22sp"
         android:gravity="center"
         android:padding="20dp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/view_space"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:id="@+id/txt_instructions"
+        android:id="@+id/tv_card"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
+        android:text="\?"
+        android:textStyle="bold"
+        android:background="@color/pink"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_instructions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text=""
         android:textSize="22sp"
         android:gravity="center"
         android:padding="20dp"
-        app:layout_constraintTop_toBottomOf="@id/txt_display"
+        app:layout_constraintTop_toBottomOf="@id/tv_card"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/layout_players_list"
@@ -67,7 +82,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/txt_instructions"
+        app:layout_constraintTop_toBottomOf="@id/tv_instructions"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -79,5 +94,6 @@
         android:text="Nouveau round"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_players_list"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
