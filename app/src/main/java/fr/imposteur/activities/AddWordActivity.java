@@ -19,6 +19,7 @@ public class AddWordActivity extends AppCompatActivity {
         btnBack.setOnClickListener(view -> {
             Intent intent = new Intent(AddWordActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 }

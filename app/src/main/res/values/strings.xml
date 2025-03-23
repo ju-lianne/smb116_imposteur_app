@@ -13,4 +13,7 @@
     <string name="quit">Quitter</string>
     <string name="new_game">Nouvelle partie</string>
     <string name="new_round">Nouveau round</string>
+    <string name="add_category">Ajouter la catégorier</string>
+    <string name="add_newWords">Ajouter les mots</string>
+    <string name="add_field">Ajouter un champ</string>
 </resources>
