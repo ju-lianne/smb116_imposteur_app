@@ -11,4 +11,6 @@
     <string name="add_words">Ajouter des mots</string>
     <string name="start_game">Lancer une partie</string>
     <string name="quit">Quitter</string>
+    <string name="new_game">Nouvelle partie</string>
+    <string name="new_round">Nouveau round</string>
 </resources>
