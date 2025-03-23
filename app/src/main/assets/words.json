@@ -522,5 +522,10 @@
     "jack russell",
     "corgi",
     "berger allemand"
+  ],
+  "grand_pays": [
+    "canada",
+    "russie",
+    "états unis"
   ]
 }

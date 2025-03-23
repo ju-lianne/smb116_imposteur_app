@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 import java.util.Objects;
 
 public class DataImporter {
-    private Context context;
+    private final Context context;
 
     public DataImporter(Context context) {
         this.context = context;
