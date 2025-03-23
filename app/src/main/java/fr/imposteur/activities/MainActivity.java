@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         Button btnCloseApp = findViewById(R.id.btn_closeApp);
         btnCloseApp.setOnClickListener(view -> Utils.showExitConfirmation(this));
 
-
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
 
@@ -50,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
         Button btnStartGame = findViewById(R.id.btn_startGame);
         btnStartGame.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, NbPlayersActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        Button btnAddWord = findViewById(R.id.btn_addWord);
+        btnAddWord.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, AddWordActivity.class);
             startActivity(intent);
             finish();
         });
