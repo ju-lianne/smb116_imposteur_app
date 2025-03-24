@@ -168,21 +168,25 @@ public class GameActivity extends AppCompatActivity {
             playerButton.setOnClickListener(view -> {
                 round.eliminatePlayer(player);
                 layoutPlayerList.removeView(playerButton);
-                txtTitle.setText("Il reste : " + round.getAgentCount() + " agents et " + round.getVillainCount() + " vilains !" );
+                txtTitle.setText("Il reste : " + round.getAgentCount() + " agents et " + round.getVillainCount() + " vilains !");
 
-                if (round.endRoundCondition() > 0) {
-                    if (round.endRoundCondition() == 1) {
-                        txtInstructions.setText("Les vilains ont gagné !u" );
-                    } else if (round.endRoundCondition() == 2) {
-                        txtInstructions.setText("Les agents ont gagné !" );
+                int endRoundStatus = round.endRoundCondition();
+                if (endRoundStatus > 0) {
+                    if (endRoundStatus == 1) {
+                        txtInstructions.setText("Les vilains ont gagné !");
+                    } else if (endRoundStatus == 2) {
+                        txtInstructions.setText("Les agents ont gagné !");
                     }
                     layoutPlayerList.setVisibility(View.GONE);
                     btnNewRound.setVisibility(View.VISIBLE);
+                } else {
+                    txtInstructions.setText("Refaites un tour (chacun dit un mot) puis retournez le téléphone pour relancer l'élimination.");
                 }
             });
             layoutPlayerList.addView(playerButton);
         }
     }
+
 
     @Override
     protected void onDestroy() {
