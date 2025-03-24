@@ -84,24 +84,24 @@ public class GameActivity extends AppCompatActivity {
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         if (accelerometer != null) {
-            accelerometerListener = new SensorEventListener() {
-                @Override
-                public void onSensorChanged(SensorEvent event) {
-                    float z = event.values[2]; // Axe Z de l'accéléromètre (vertical)
+                accelerometerListener = new SensorEventListener() {
+                    @Override
+                    public void onSensorChanged(SensorEvent event) {
+                        float z = event.values[2];
 
-                    if (z < -9) { // Seuil pour détecter le téléphone face contre table
-                        if (!isEliminationPhase) {
-                            isEliminationPhase = true;
-                            showEliminationPhase(round);
+                        if (z < -9) {
+                            if (!isEliminationPhase) {
+                                isEliminationPhase = true;
+                                showEliminationPhase(round);
+                            }
+
                         }
-
                     }
-                }
 
-                @Override
-                public void onAccuracyChanged(Sensor sensor, int accuracy) {}
-            };
-            sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+                    @Override
+                    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+                };
+                sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 
@@ -178,6 +178,11 @@ public class GameActivity extends AppCompatActivity {
                     }
                     layoutPlayerList.setVisibility(View.GONE);
                     btnNewRound.setVisibility(View.VISIBLE);
+                } else {
+                    txtInstructions.setText("Refaites un tour (chacun dit un mot) puis retournez le téléphone pour lancer l'élimination.");
+                    layoutPlayerList.setVisibility(View.GONE);
+                    layoutPlayerList.removeAllViews();
+                    isEliminationPhase = false;
                 }
             });
             layoutPlayerList.addView(playerButton);
