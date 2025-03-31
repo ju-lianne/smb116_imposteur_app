@@ -223,7 +223,8 @@
   "cosmetique": [
     "Crème solaire",
     "Crème hydratante",
-    "Crème antiride"
+    "Crème antiride",
+    "Fond de teint"
   ],
   "arme_medievale_distance": [
     "Arbalète",
@@ -522,5 +523,42 @@
     "jack russell",
     "corgi",
     "berger allemand"
+  ],
+  "outil_ecriture": [
+    "feutre",
+    "stylo plume",
+    "criterium",
+    "stylo bille",
+    "crayon de couleur"
+  ],
+  "glire": [
+    "souris",
+    "rat",
+    "ecureuil",
+    "lapin"
+  ],
+  "garniture_pizza": [
+    "champignon",
+    "poivron",
+    "jambon",
+    "mozzarella",
+    "sauce tomate",
+    "crème fraîche",
+    "olive"
+  ],
+  "arthropode": [
+    "criquet",
+    "moustique",
+    "termite",
+    "mante religieuse",
+    "araignée",
+    "cloporte"
+  ],
+  "crustace_mollusque": [
+    "crabe",
+    "crevette",
+    "homard",
+    "huître",
+    "moule"
   ]
 }

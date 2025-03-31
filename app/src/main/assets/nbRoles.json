@@ -5,43 +5,43 @@
     "whitepage": 0
   },
   "5": {
-    "agent": 3,
+    "agent": 4,
     "spy": 1,
     "whitepage": 0
   },
   "6": {
     "agent": 4,
-    "spy": 2,
-    "whitepage": 0
+    "spy": 1,
+    "whitepage": 1
   },
   "7": {
     "agent": 5,
-    "spy": 2,
-    "whitepage": 0
+    "spy": 1,
+    "whitepage": 1
   },
   "8": {
-    "agent": 5,
-    "spy": 2,
+    "agent": 6,
+    "spy": 1,
     "whitepage": 1
   },
   "9": {
-    "agent": 5,
-    "spy": 3,
+    "agent": 6,
+    "spy": 2,
     "whitepage": 1
   },
   "10": {
-    "agent": 6,
-    "spy": 3,
+    "agent": 7,
+    "spy": 2,
     "whitepage": 1
   },
   "11": {
     "agent": 7,
-    "spy": 3,
-    "whitepage": 1
+    "spy": 2,
+    "whitepage": 2
   },
   "12": {
     "agent": 7,
-    "spy": 4,
-    "whitepage": 1
+    "spy": 3,
+    "whitepage": 2
   }
 }
