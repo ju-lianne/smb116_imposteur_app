@@ -40,13 +40,15 @@ public class GameActivity extends AppCompatActivity {
     private Game game;
     private List<Player> players;
     private int currentIndex;
-    private boolean showingWord;
+    private boolean showingWord, showElimination;
     private Round round;
 
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        showElimination = false;
 
         // XML elements
         txtTitle = findViewById(R.id.tv_title);
@@ -89,7 +91,7 @@ public class GameActivity extends AppCompatActivity {
                     public void onSensorChanged(SensorEvent event) {
                         float z = event.values[2];
 
-                        if (z < -9) {
+                        if (showElimination && z < -9) {
                             if (!isEliminationPhase) {
                                 isEliminationPhase = true;
                                 showEliminationPhase(round);
@@ -109,6 +111,7 @@ public class GameActivity extends AppCompatActivity {
         Log.d("DebugCategory", "categories remaining : " + game.remainingCategories.size());
         round = new Round(game);
         isEliminationPhase = false;
+        showElimination = false;
         currentIndex = 0;
         showingWord = false;
 
@@ -134,6 +137,7 @@ public class GameActivity extends AppCompatActivity {
             txtTitle.setText("");
             txtDisplay.setVisibility(View.GONE);
             txtInstructions.setText("Retournez le téléphone contre une surface. Jouez 2 rounds puis reprenez le téléphone.");
+            showElimination = true;
             return;
         }
 
